@@ -3,7 +3,7 @@
 %define debug_package %{nil}
 
 Name:           lorax
-Version:        40.5.13
+Version:        40.5.15
 Release:        1%{?dist}
 Summary:        Tool for creating the anaconda install images
 
@@ -182,6 +182,27 @@ make DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir} install
 %{_datadir}/lorax/templates.d/*
 
 %changelog
+* Fri Feb 06 2026 Brian C. Lane <bcl@redhat.com> 40.5.15-1
+- executils: Ignore utf-8 decode errors (bcl)
+  Resolves: RHEL-121650
+- executils: Remove binary_output flag (bcl)
+  Related: RHEL-121650
+- logging: Set encoding=UTF-8 on FileHandler (bcl)
+  Related: RHEL-121650
+- executils: Set encoding to UTF-8 for _run_program (bcl)
+  Related: RHEL-121650
+
+* Thu Jan 22 2026 Brian C. Lane <bcl@redhat.com> 40.5.14-1
+- New lorax documentation - 40.5.14 (bcl)
+  Related: RHEL-130954
+- templates: Synchronize generic templates with lorax-templates-rhel (bcl)
+  Related: RHEL-126547
+  Resolves: RHEL-130954
+- livemedia.ks: Increase size of root partition in example live kickstart (bcl)
+  Resolves: RHEL-142732
+- executils: decoding after deserialization (oleg.sviridov)
+  Resolves: RHEL-121650
+
 * Mon Aug 11 2025 Brian C. Lane <bcl@redhat.com> 40.5.13-1
 - templates: Synchronize generic templates with lorax-templates-rhel (bcl)
   Resolves: RHEL-80789
