@@ -3,7 +3,7 @@
 %define debug_package %{nil}
 
 Name:           lorax
-Version:        34.9.29
+Version:        34.9.33
 Release:        1%{?dist}
 Summary:        Tool for creating the anaconda install images
 
@@ -185,6 +185,54 @@ make DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir} install
 %{_datadir}/lorax/templates.d/*
 
 %changelog
+* Fri Aug 21 2026 Brian C. Lane <bcl@redhat.com> 34.9.33-1
+- test-packages: Add tito so pylint can run (bcl)
+  Related: RHEL-246532
+- ltmpl: Use output directory's real path (bcl)
+  Resolves: RHEL-246532
+
+* Wed Aug 12 2026 Brian C. Lane <bcl@redhat.com> 34.9.32-1
+- tito: Use .tito instead of old ./rel-eng directory (bcl)
+  Related: RHEL-238021
+- creator: Use safe_joinpaths in mount_boot_part_over_root (bcl)
+  Resolves: RHEL-238021
+- creator: Use safe_joinpaths in make_livecd (bcl)
+  Related: RHEL-238021
+- creator: Use safe_joinpaths in make_live_images (bcl)
+  Related: RHEL-238021
+- ltmpl: Check for paths inside outroot on hardlink, symlink, copy, move (bcl)
+  Related: RHEL-238021
+- sysutils: Add safe_joinpaths function (bcl)
+  Related: RHEL-238021
+- ltmpl: Add tests for access outside outroot (bcl)
+  Related: RHEL-238021
+- treebuilder: Check for symlink when writing module-info (bcl)
+  Related: RHEL-238021
+- findkernels: Exclude kernel symlinks pointing outside root (bcl)
+  Related: RHEL-238021
+- novirt_install: Use remove on /tmp paths and /mnt/sysimage (bcl)
+  Related: RHEL-238021
+- sysutils: Add a test for remove and symlinked directories (bcl)
+  Related: RHEL-238021
+
+* Fri Jul 24 2026 Brian C. Lane <bcl@redhat.com> 34.9.31-1
+- Increase root partition to 10 GiB for a live medium (jikortus)
+  Resolves: RHEL-214304
+
+* Tue Apr 21 2026 Brian C. Lane <bcl@redhat.com> 34.9.30-1
+- rel-eng: Update the tito LoraxRHELTagger for Jira (bcl)
+  Related: RHEL-121651
+- executils: Ignore utf-8 decode errors (bcl)
+  Resolves: RHEL-121651
+- executils: Remove binary_output flag (bcl)
+  Related: RHEL-121651
+- logging: Set encoding=UTF-8 on FileHandler (bcl)
+  Related: RHEL-121651
+- executils: Set encoding to UTF-8 for _run_program (bcl)
+  Related: RHEL-121651
+- executils: decoding after deserialization (oleg.sviridov)
+  Related: RHEL-121651
+
 * Mon Aug 11 2025 Brian C. Lane <bcl@redhat.com> 34.9.29-1
 - templates: Synchronize with lorax-templates-rhel (bcl) (bcl)
   Resolves: RHEL-54712
